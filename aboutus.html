@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>CaRs | About Us</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+        <script src="https://kit.fontawesome.com/dbed6b6114.js" crossorigin="anonymous"></script>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <style>
+            * {
+                box-sizing: border-box;
+                padding: 0;
+                margin: 0;
+            }
+
+            body {
+                font-family: 'Poppins', sans-serif;
+                background: #f5f5f5;
+                min-height: 100vh;
+                display: flex;
+                flex-direction: column;
+            }
+
+            /* Navigation Styles */
+            .navbar {
+                background: white;
+                padding: 1rem 2rem;
+                box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+                position: fixed;
+                width: 100%;
+                top: 0;
+                z-index: 1000;
+            }
+
+            .nav-container {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .logo {
+                font-size: 1.5rem;
+                font-weight: 700;
+                color: #1a1a1a;
+                text-decoration: none;
+                background: linear-gradient(45deg, #4158D0, #C850C0);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+
+            .nav-links {
+                display: flex;
+                gap: 2rem;
+                list-style: none;
+            }
+
+            .nav-links a {
+                text-decoration: none;
+                color: #666;
+                font-weight: 500;
+                transition: color 0.3s ease;
+            }
+
+            .nav-links a:hover {
+                color: #4158D0;
+            }
+
+            .hamburger {
+                display: none;
+                cursor: pointer;
+            }
+
+            /* Main Content Styles */
+            main {
+                margin-top: 80px;
+                flex: 1;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 2rem;
+            }
+
+            section {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                max-width: 1200px;
+                margin: 0 auto;
+                background: white;
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            }
+
+            .image {
+                position: relative;
+                overflow: hidden;
+                background: linear-gradient(45deg, #1a1a1a, #2d2d2d);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 2rem;
+            }
+
+            .image img {
+                width: 100%;
+                height: auto;
+                max-width: 400px;
+                transition: transform 0.3s ease;
+            }
+
+            .image:hover img {
+                transform: scale(1.05);
+            }
+
+            .content {
+                padding: 4rem 3rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                background: white;
+            }
+
+            .content h2 {
+                font-size: 2.5rem;
+                color: #1a1a1a;
+                margin-bottom: 1rem;
+                position: relative;
+                padding-bottom: 1rem;
+            }
+
+            .content h2::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 60px;
+                height: 3px;
+                background: linear-gradient(45deg, #4158D0, #C850C0);
+                border-radius: 3px;
+            }
+
+            .content p {
+                color: #666;
+                line-height: 1.8;
+                margin-bottom: 2rem;
+                font-size: 1.1rem;
+            }
+
+            .links {
+                display: flex;
+                gap: 1rem;
+                margin-bottom: 2rem;
+                list-style: none;
+            }
+
+            .links li a {
+                display: inline-block;
+                padding: 0.8rem 1.5rem;
+                text-decoration: none;
+                color: #1a1a1a;
+                font-weight: 500;
+                border-radius: 30px;
+                background: #f5f5f5;
+                transition: all 0.3s ease;
+            }
+
+            .links li a:hover {
+                background: linear-gradient(45deg, #4158D0, #C850C0);
+                color: white;
+                transform: translateY(-2px);
+            }
+
+            .icons {
+                display: flex;
+                gap: 1rem;
+                list-style: none;
+            }
+
+            .icons li a {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+                border-radius: 50%;
+                background: #f5f5f5;
+                color: #1a1a1a;
+                transition: all 0.3s ease;
+            }
+
+            .icons li a:hover {
+                background: linear-gradient(45deg, #4158D0, #C850C0);
+                color: white;
+                transform: translateY(-2px);
+            }
+
+            @media (max-width: 900px) {
+                section {
+                    grid-template-columns: 1fr;
+                    max-width: 500px;
+                }
+
+                .image {
+                    min-height: 300px;
+                }
+
+                .content {
+                    padding: 2rem;
+                }
+
+                .content h2 {
+                    font-size: 2rem;
+                }
+            }
+
+            @media (max-width: 500px) {
+                body {
+                    padding: 1rem;
+                }
+
+                .content {
+                    padding: 1.5rem;
+                }
+
+                .links {
+                    flex-direction: column;
+                }
+
+                .links li a {
+                    display: block;
+                    text-align: center;
+                }
+            }
+
+            /* Footer Styles */
+            footer {
+                background: #1a1a1a;
+                color: white;
+                padding: 4rem 2rem 2rem;
+                margin-top: 4rem;
+            }
+
+            .footer-content {
+                max-width: 1200px;
+                margin: 0 auto;
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2rem;
+            }
+
+            .footer-section h3 {
+                color: white;
+                margin-bottom: 1.5rem;
+                font-size: 1.2rem;
+            }
+
+            .footer-section p {
+                color: #999;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+            }
+
+            .footer-links {
+                list-style: none;
+            }
+
+            .footer-links li {
+                margin-bottom: 0.8rem;
+            }
+
+            .footer-links a {
+                color: #999;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .footer-links a:hover {
+                color: #4158D0;
+            }
+
+            .footer-bottom {
+                text-align: center;
+                margin-top: 3rem;
+                padding-top: 2rem;
+                border-top: 1px solid #333;
+                color: #999;
+            }
+
+            .social-links {
+                display: flex;
+                gap: 1rem;
+                margin-top: 1rem;
+            }
+
+            .social-links a {
+                color: #999;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+            .social-links a:hover {
+                color: #4158D0;
+            }
+
+            @media (max-width: 900px) {
+                .nav-links {
+                    display: none;
+                }
+
+                .hamburger {
+                    display: block;
+                }
+
+                .footer-content {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+
+            @media (max-width: 500px) {
+                .footer-content {
+                    grid-template-columns: 1fr;
+                }
+            }
+        </style>
+
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <a href="index.php" class="logo">CaRs</a>
+                <ul class="nav-links">
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="aboutus.html">About</a></li>
+                    <li><a href="contactus.html">Contact</a></li>
+                    <li><a href="register.php">Login/Register</a></li>
+                </ul>
+                <div class="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main>
+            <section data-aos="fade-up">
+                <div class="image">
+                    <img src="https://cdn.pixabay.com/photo/2017/08/26/23/37/business-2684758__340.png" 
+                         alt="About Us Illustration">
+                </div>
+
+                <div class="content">
+                    <h2 data-aos="fade-left">About Us</h2>
+                    <p data-aos="fade-left" data-aos-delay="100">
+                        Welcome to CaRs, where we turn your automotive dreams into reality. We started this company with a simple mission: to make luxury and comfort accessible to everyone. Our commitment to excellence and customer satisfaction drives everything we do.
+                    </p>
+                    <ul class="links" data-aos="fade-left" data-aos-delay="200">
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <ul class="icons" data-aos="fade-left" data-aos-delay="300">
+                        <li>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-github"></i></a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>About CaRs</h3>
+                    <p>Your premier destination for luxury car rentals. We provide exceptional service and unforgettable driving experiences.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="cardetails.php">Cars</a></li>
+                        <li><a href="aboutus.html">About Us</a></li>
+                        <li><a href="contactus.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Luxury Cars</a></li>
+                        <li><a href="#">Sports Cars</a></li>
+                        <li><a href="#">Premium SUVs</a></li>
+                        <li><a href="#">Special Events</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Contact Info</h3>
+                    <ul class="footer-links">
+                        <li><i class="fas fa-phone"></i> +91 81246 76002 </li>
+                        <li><i class="fas fa-phone"></i> +91 93420 90144 </li>
+                        <li><i class="fas fa-envelope"></i> onlinecarrental@gmail.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 123 Car Street, Katpadi, India</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 CaRs. All rights reserved.</p>
+            </div>
+        </footer>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+        <script>
+            AOS.init({
+                duration: 800,
+                once: true
+            });
+
+            // Mobile menu toggle
+            document.querySelector('.hamburger').addEventListener('click', function() {
+                document.querySelector('.nav-links').style.display = 
+                    document.querySelector('.nav-links').style.display === 'flex' ? 'none' : 'flex';
+            });
+        </script>
+    </body>
+</html>

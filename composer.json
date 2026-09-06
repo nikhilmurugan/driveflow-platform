@@ -1,0 +1,14 @@
+{
+    "name": "cars/car-rental",
+    "description": "Car Rental System with SMS Notifications",
+    "type": "project",
+    "require": {
+        "twilio/sdk": "^7.0"
+    },
+    "authors": [
+        {
+            "name": "CaRs Admin",
+            "email": "admin@cars.com"
+        }
+    ]
+}

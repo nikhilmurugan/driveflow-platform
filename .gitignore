@@ -1,0 +1,25 @@
+# Environment
+.env
+
+# Logs
+logs/
+*.log
+
+# Cache
+cache/
+temp/
+
+# VS Code
+.vscode/
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Java
+*.class
+bin/
+
+# Build files
+dist/
+build/
